@@ -1,8 +1,10 @@
-// readded this comment
-
 import React, {useEffect, useState} from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import MovieBox from './MovieBox';
+import MovieBoxHeader from "./MovieBoxHeader";
+import NavMenu from './NavMenu';
+
 
 function App() {
 
@@ -22,12 +24,19 @@ function App() {
 
  },[])
 
-
   return (
-    <div>
+    <div className = 'container-fluid FilmFlow'>
+        <div className = "row">
+            <NavMenu />
+        </div>
+        <div className = "row">
+            <MovieBoxHeader header = "Popular Right Now" />
+        </div>
+      <div className = "row">
       {movies.map((movieReq) =>
       <MovieBox key={movieReq.id} {...movieReq}/>)}
     </div>
+        </div>
   );
 }
 

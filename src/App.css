@@ -1,3 +1,76 @@
+/* the overall body of hte html page; though this doesnt seem to work;
+   the others in this file probably override this one
+ */
+body
+{
+  background: #1c3333;
+}
+
+/* used for generic rows if needed */
+.row
+{
+}
+
+/* used for displaying movies horizontally in one row */
+.FilmFlow > .row
+{
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  background: #1c3333;
+  color: #ffffff;
+}
+
+/* used for the entire MovieBox div */
+.row > .movies-all
+{
+  width: 400px;
+}
+
+/* used for only the movie title if needed */
+.movie-title
+{
+}
+
+/* used for only the movie box image if needed */
+.movie-img
+{
+  inline-size: 400px;
+}
+
+/* used for only the movie box description/overview */
+.movie-description
+{
+  inline-size: 300px;
+  overflow-wrap: normal;
+}
+
+/* used for the category header (i.e. "Popular Right Now") */
+.category-header
+{
+  font-family: Impact;
+  text-decoration: underline;
+  color: white;
+}
+
+/* used for the navbar before clicking the offcanvas menu button if needed */
+.navbar
+{
+
+}
+
+div.offcanvas
+{
+  background: #1c3333;
+  color: white;
+}
+
+/*
+// Originally created code below
+// Probably delete, but saving it just in case it solves
+// any bugs or issues down the road
+ */
+
+/*
 .App {
   text-align: center;
 }
@@ -36,3 +109,5 @@
     transform: rotate(360deg);
   }
 }
+
+ */
