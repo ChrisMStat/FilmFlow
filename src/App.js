@@ -12,7 +12,7 @@ function App() {
 
   const [movies, setMovies] = useState([]);
  // const example = ["one", "two"];
-
+// add comment
  useEffect(() => {
   
   fetch(API_URL)
