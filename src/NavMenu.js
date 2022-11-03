@@ -4,12 +4,33 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import React, {useState} from "react";
+
+import requests from './requests';
+
 
 function NavMenu() {
+    const[query, setQuery]= useState("");
+    const[results,setResults]= useState([]);
+
+const onChange = e => {
+    e.preventDefault();
+    setQuery(e.target.value);
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=518f0cf1333524b8ec0f30f5fb0b224a&query=${e.target.value}`
+    ).then((res)=> res.json()).then((data)=>{
+        if(!data.errors){
+            setResults(data.results);
+            console.log(data.results);
+        }else{
+            setResults([]);
+        }
+    });
+}
     return (
-        <>
+        <div>
             {[false].map((expand) => (
                 <Navbar key={expand} bg="black" variant="dark" sticky='top' expand={expand} className="mb-3">
+
                     <Container fluid>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                         <Navbar.Offcanvas
@@ -27,13 +48,19 @@ function NavMenu() {
                                     <Nav.Link href="#home">Home</Nav.Link>
                                     <Nav.Link href="#profile">Profile</Nav.Link>
                                     <Nav.Link href="#about">About Us</Nav.Link>
+                                    <input type="text"
+                                    value ={query}
+                                    onChange={onChange}/>
                                 </Nav>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>
                     </Container>
                 </Navbar>
+
+
             ))}
-        </>
+            
+        </div>
     );
 }
 export default NavMenu;
