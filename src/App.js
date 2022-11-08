@@ -7,6 +7,10 @@ import MovieBox from './MovieBox';
 import MovieBoxHeader from "./MovieBoxHeader";
 import NavMenu from './NavMenu';
 import requests from './requests';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Login from "./Login"
+import MovieRowsPage from "./MovieRowsPage"
+import AboutUs from "./AboutUs";
 
 function App() {
 
@@ -51,32 +55,18 @@ const onChange = e => {
             <NavMenu/>
 
 			      </div>
-            <input type="text"
-                                    value ={query}
-                                    onChange={onChange}/>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/movies" element={<MovieRowsPage />} />
+                <Route path="/about" element={<AboutUs />} />
 
-<SearchRow title = "Search" fetchUrl={`/search/movie?api_key=518f0cf1333524b8ec0f30f5fb0b224a&query=${query}`} isLargeRow/>
-      <Row title = "Trending" 
-      fetchUrl={requests.fetchTrending}
-      />
-      <Row title = "Action" fetchUrl={requests.fetchActionMovies}/>
-      <Row title = "Comedy" fetchUrl={requests.fetchComedyMovies}/>
-      <Row title = "Horror" fetchUrl={requests.fetchHorrorMovies}/>
+
+            </Routes>
+        </BrowserRouter>
     </div>
 
-    /*<div className = 'container-fluid FilmFlow'>
-    <SearchRow title = "Search" fetchUrl={requests.fetchActionMovies}/>
-        <div className = "row">
-            <NavMenu />
-        </div>
-        <div className = "row">
-            <MovieBoxHeader header = "Popular Right Now" />
-        </div>
-      <div className = "row">
-      {movies.map((movieReq) =>
-      <MovieBox key={movieReq.id} {...movieReq}/>)}
-    </div>
-        </div>*/
+
   );
 }
 

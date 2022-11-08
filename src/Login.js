@@ -1,23 +1,29 @@
+/*
+contains the login AND register page
+ */
+
 import React, { useState } from "react"
 
 export default function (props) {
     let [loginOption, setOption] = useState("signin")
 
-    const changeAuthMode = () => {
+    /* used to set whether to show the sign in or sign up forms */
+    const loginModeChange = () => {
         setOption(loginOption === "signin" ? "signup" : "signin")
     }
 
+    /* sign in form */
     if (loginOption === "signin") {
         return (
-            <div className="Login-form-container">
+            <div className="Login-container">
                 <form className="Login-form">
                     <div className="Login-form-content">
                         <h3 className="Login-form-title">Sign In</h3>
                         <div className="text-center">
-                            New User?{" "}
-                            <span className="link-primary" onClick={changeAuthMode}>
-                Sign Up
-              </span>
+                            Don't have an account?{" "}
+                            <span className="link-primary" onClick={loginModeChange}>
+                                Sign Up
+                            </span>
                         </div>
                         <div className="form-group mt-3">
                             <label>Email address</label>
@@ -49,23 +55,24 @@ export default function (props) {
         )
     }
 
+    /* sign up form */
     return (
-        <div className="Auth-form-container">
-            <form className="Auth-form">
-                <div className="Auth-form-content">
-                    <h3 className="Auth-form-title">Sign In</h3>
+        <div className="Login-container">
+            <form className="Login-form">
+                <div className="Login-form-content">
+                    <h3 className="Login-form-title">Sign In</h3>
                     <div className="text-center">
-                        Already registered?{" "}
-                        <span className="link-primary" onClick={changeAuthMode}>
-              Sign In
-            </span>
+                        Already have an account?{" "}
+                        <span className="link-primary" onClick={loginModeChange}>
+                            Sign In
+                        </span>
                     </div>
                     <div className="form-group mt-3">
                         <label>Full Name</label>
                         <input
-                            type="email"
+                            type="name"
                             className="form-control mt-1"
-                            placeholder="e.g Jane Doe"
+                            placeholder="e.g First Last"
                         />
                     </div>
                     <div className="form-group mt-3">
