@@ -7,10 +7,12 @@ import MovieBox from './MovieBox';
 import MovieBoxHeader from "./MovieBoxHeader";
 import NavMenu from './NavMenu';
 import requests from './requests';
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Login from "./Login"
-import MovieRowsPage from "./MovieRowsPage"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./login.component";
+import SignUP from "./signup.component";
+import MovieRowsPage from "./MovieRowsPage";
 import AboutUs from "./AboutUs";
+import SignUp from './signup.component';
 
 function App() {
 
@@ -57,7 +59,8 @@ const onChange = e => {
 			      </div>
         <BrowserRouter>
             <Routes>
-                <Route path="/login" element={<Login />} />
+                <Route path="/sign-in" element={<Login />} />
+                <Route path="/sign-up" element={<SignUp />} />
                 <Route path="/movies" element={<MovieRowsPage />} />
                 <Route path="/about" element={<AboutUs />} />
 

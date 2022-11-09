@@ -46,12 +46,9 @@ const onChange = e => {
                             <Offcanvas.Body>
                                 <Nav className="justify-content-end flex-grow-1 pe-3">
                                     <Nav.Link href="/movies">Home</Nav.Link>
-                                    <Nav.Link href="/login">Profile</Nav.Link>
+                                    <Nav.Link href="/sign-up">Profile</Nav.Link>
                                     <Nav.Link href="/about">About Us</Nav.Link>
                                     <Nav.Link href="/movies">Movies_temp</Nav.Link>
-                                    <input type="text"
-                                    value ={query}
-                                    onChange={onChange}/>
                                 </Nav>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>
