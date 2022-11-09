@@ -2,6 +2,7 @@ import SearchRow from "./SearchRow";
 import Row from "./Row";
 import requests from "./requests";
 import React, {useEffect, useState} from 'react';
+//import AnotherRow from './row.component';
 
 export default function (props) {
 
@@ -20,6 +21,7 @@ export default function (props) {
             }else{
                 setResults([]);
             }
+            <AnotherRow title="Action" fetchUrl={requests.fetchActionMovies}/>
         });*/
         console.log(query);
     }

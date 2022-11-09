@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Component} from 'react';
 import axios from './axios';
 import './Row.css';
 
@@ -6,9 +6,11 @@ const base_url = "https://image.tmdb.org/t/p/original/";
 var result;
 function test(id){
    result = id;
-console.log(result);
+
+   console.log(result);
 
 };
+
 
 function Row({title, fetchUrl, isLargeRow}){
     const[movies, setMovies] = useState([]);
@@ -56,32 +58,4 @@ function Row({title, fetchUrl, isLargeRow}){
     )
     
 }
-
-
-
-/*                        <div
-                        onClick={() => props.handleFavouritesClick(movie)}
-						className='overlay d-flex align-items-center justify-content-center'>
-                        </div>
-
-                        <FavouriteComponent />
-
-function Row({title, fetchUrl}){
-    useEffect(()=>{
-
-        async function fetchData(){
-            const request = await axios.get(fetchUrl);
-        }
-        fetchData();
-    },[]);
-
-    return(
-        <div>
-            <h2>{title}</h2>
-
-            {}
-        </div>
-    )
-}*/
-
 export default Row
