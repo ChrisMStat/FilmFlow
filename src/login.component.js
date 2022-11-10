@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import App from './App';
 
 
 export default class Login extends Component {
@@ -9,6 +9,7 @@ export default class Login extends Component {
       email:"",
       password:"",
       movID:"",
+
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -17,7 +18,13 @@ export default class Login extends Component {
 
   handleSubmit(e){
     e.preventDefault();
+    //movies = email;
     const {email, password, movID} = this.state;
+/*App.e = {email};
+App.p= {password};*/
+localStorage.setItem("email", email);
+localStorage.setItem("password", password);
+//movies = movID;
     console.log(email, password,movID);
     fetch("http://localhost:5000/login",{
       method: "POST",
@@ -64,16 +71,6 @@ export default class Login extends Component {
             className="form-control"
             placeholder="Enter password"
             onChange={e=>this.setState({password: e.target.value})}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label>MovieID</label>
-          <input
-            type="movieID"
-            className="form-control"
-            placeholder="Enter movieID"
-            onChange={e=>this.setState({movID: e.target.value})}
           />
         </div>
 

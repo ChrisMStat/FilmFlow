@@ -16,21 +16,10 @@ import SignUp from './signup.component';
 
 function App() {
 
- // const API_URL = "https://api.themoviedb.org/3/movie/popular?api_key=518f0cf1333524b8ec0f30f5fb0b224a";
 
- /* const [movies, setMovies] = useState([]);
- // const example = ["one", "two"];
-// add comment
- useEffect(() => {
-  
-  fetch(API_URL)
-  .then((res) => res.json())
-  .then(data=>{
-    console.log(data);
-    setMovies(data.results);
-  })
-
- },[])*/
+ var e;
+ var p;
+ var m;
  const[query, setQuery]= useState("");
  const[results,setResults]= useState([]);
 
