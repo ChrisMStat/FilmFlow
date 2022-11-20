@@ -1,29 +1,28 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class SignUp extends Component {
-  constructor(props){
-    super(props)
-    this.state ={
+  constructor(props) {
+    super(props);
+    this.state = {
       fname: "",
       lname: "",
       email: "",
-      password:""
+      password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  //hello
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
-    const {fname, lname, email, password} = this.state;
+    const { fname, lname, email, password } = this.state;
     console.log(fname, lname, email, password);
-    fetch("http://localhost:5000/register",{
+    fetch("http://localhost:5000/register", {
       method: "POST",
       crossDomain: true,
-      headers:{
+      headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         fname,
@@ -31,17 +30,15 @@ export default class SignUp extends Component {
         lname,
         password,
       }),
-    }).then((res)=> res.json())
-    .then((data)=>{
-      console.log(data, "userRegister");
     })
-    //console.log(lname);
-    
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "userRegister");
+      });
   }
   render() {
     return (
-      
-      <form onSubmit ={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <h3>Sign Up</h3>
 
         <div className="mb-3">
@@ -50,14 +47,18 @@ export default class SignUp extends Component {
             type="text"
             className="form-control"
             placeholder="First name"
-            onChange={e=>this.setState({fname: e.target.value})}
+            onChange={(e) => this.setState({ fname: e.target.value })}
           />
         </div>
 
         <div className="mb-3">
           <label>Last name</label>
-          <input type="text" className="form-control" placeholder="Last name" 
-          onChange={e=>this.setState({lname: e.target.value})}/>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Last name"
+            onChange={(e) => this.setState({ lname: e.target.value })}
+          />
         </div>
 
         <div className="mb-3">
@@ -66,7 +67,7 @@ export default class SignUp extends Component {
             type="email"
             className="form-control"
             placeholder="Enter email"
-            onChange={e=>this.setState({email: e.target.value})}
+            onChange={(e) => this.setState({ email: e.target.value })}
           />
         </div>
 
@@ -76,7 +77,7 @@ export default class SignUp extends Component {
             type="password"
             className="form-control"
             placeholder="Enter password"
-            onChange={e=>this.setState({password: e.target.value})}
+            onChange={(e) => this.setState({ password: e.target.value })}
           />
         </div>
 
@@ -89,6 +90,6 @@ export default class SignUp extends Component {
           Already registered <a href="/sign-in">sign in?</a>
         </p>
       </form>
-    )
+    );
   }
 }
