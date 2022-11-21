@@ -26,7 +26,7 @@ export default function (props) {
       <Row title="Trending" fetchUrl={requests.fetchTrending} />
       <Row title="Action" fetchUrl={requests.fetchActionMovies} />
       <Row title="Comedy" fetchUrl={requests.fetchComedyMovies} />
-      <Row title="Horror" fetchUrl={requests.fetchHorrorMovies} />
+      <Row title="Romance" fetchUrl={requests.fetchHorrorMovies} />
       <UserRow />
     </div>
   );

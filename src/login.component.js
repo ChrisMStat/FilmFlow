@@ -19,7 +19,7 @@ export default class Login extends Component {
 
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
-    console.log(email, password, movID);
+    //console.log(email, password, movID);
     fetch("http://localhost:5000/login", {
       method: "POST",
       crossDomain: true,
@@ -31,7 +31,6 @@ export default class Login extends Component {
       body: JSON.stringify({
         email,
         password,
-        movID,
       }),
     })
       .then((res) => res.json())

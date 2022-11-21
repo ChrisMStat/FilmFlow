@@ -24,7 +24,7 @@ export default class UserRow extends Component {
       .then((res) => res.json())
       .then((data) => {
         console.log(data, "userInfo");
-        console.log(data.data.movID);
+        // console.log(data.data.movID);
         this.setState({ movies: data.data.movID });
       });
   }

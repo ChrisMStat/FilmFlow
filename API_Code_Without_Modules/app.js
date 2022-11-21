@@ -62,6 +62,31 @@ app.post("/userInfo", async (req, res) => {
   } catch (error) {}
 });
 
+app.post("/addbadmovie", async (req, res) => {
+  const { email, password, movID } = req.body;
+  //console.log(movID);
+  const user = await User.findOne({ email });
+  if (!user) {
+    return res.json({ error: "User not found" });
+  }
+
+  if (res.status(201)) {
+    await User.findOneAndUpdate(
+      {
+        email: email,
+      },
+      {
+        $push: {
+          badmovID: movID,
+        },
+      }
+    );
+    return res.json({ status: "ok", data: "token" });
+  } else {
+    return res.json({ error: "error" });
+  }
+});
+
 app.post("/addmovie", async (req, res) => {
   const { email, password, movID } = req.body;
 
@@ -69,8 +94,6 @@ app.post("/addmovie", async (req, res) => {
   if (!user) {
     return res.json({ error: "User not found" });
   }
-  //if (await bycrypt.compare(password, user.password)) {
-  //const token = jwt.sign({ email: user.email }, JWT_SECRET);
 
   if (res.status(201)) {
     await User.findOneAndUpdate(
@@ -87,8 +110,6 @@ app.post("/addmovie", async (req, res) => {
   } else {
     return res.json({ error: "error" });
   }
-  // }
-  res.json({ error: "error", error: "Invalid passsword" });
 });
 
 app.post("/login", async (req, res) => {

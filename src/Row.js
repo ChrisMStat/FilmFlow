@@ -31,6 +31,7 @@ function test(id) {
     .then((data) => {
       console.log(data, "userRegister");
     });
+  //window.location.reload(false);       //refreshes page on click, its kind of obnoxious but it does function properly
 }
 
 function Row({ title, fetchUrl, isLargeRow }) {
