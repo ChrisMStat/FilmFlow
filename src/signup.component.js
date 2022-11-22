@@ -1,29 +1,28 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class SignUp extends Component {
-  constructor(props){
-    super(props)
-    this.state ={
+  constructor(props) {
+    super(props);
+    this.state = {
       fname: "",
       lname: "",
       email: "",
-      password:""
+      password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  //hello
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
-    const {fname, lname, email, password} = this.state;
-    console.log(fname, lname, email, password);
-    fetch("http://localhost:5000/register",{
+    const { fname, lname, email, password } = this.state;
+    //console.log(fname, lname, email, password);
+    fetch("http://localhost:5555/register", {
       method: "POST",
       crossDomain: true,
-      headers:{
+      headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         fname,
@@ -31,52 +30,54 @@ export default class SignUp extends Component {
         lname,
         password,
       }),
-    }).then((res)=> res.json())
-    .then((data)=>{
-      console.log(data, "userRegister");
     })
-    //console.log(lname);
-    
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "userRegister");
+      });
   }
   render() {
     return (
-      
-      <form onSubmit ={this.handleSubmit}>
-        <h3>Sign Up</h3>
+      <form className = "form" onSubmit={this.handleSubmit}>
+        <h3 className = "login-signin">Sign Up</h3>
 
         <div className="mb-3">
-          <label>First name</label>
+          <label className = "login-header">First name</label>
           <input
             type="text"
             className="form-control"
             placeholder="First name"
-            onChange={e=>this.setState({fname: e.target.value})}
+            onChange={(e) => this.setState({ fname: e.target.value })}
           />
         </div>
 
         <div className="mb-3">
-          <label>Last name</label>
-          <input type="text" className="form-control" placeholder="Last name" 
-          onChange={e=>this.setState({lname: e.target.value})}/>
+          <label className = "login-header">Last name</label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Last name"
+            onChange={(e) => this.setState({ lname: e.target.value })}
+          />
         </div>
 
         <div className="mb-3">
-          <label>Email address</label>
+          <label className = "login-header">Email address</label>
           <input
             type="email"
             className="form-control"
             placeholder="Enter email"
-            onChange={e=>this.setState({email: e.target.value})}
+            onChange={(e) => this.setState({ email: e.target.value })}
           />
         </div>
 
         <div className="mb-3">
-          <label>Password</label>
+          <label className = "login-header">Password</label>
           <input
             type="password"
             className="form-control"
             placeholder="Enter password"
-            onChange={e=>this.setState({password: e.target.value})}
+            onChange={(e) => this.setState({ password: e.target.value })}
           />
         </div>
 
@@ -86,9 +87,9 @@ export default class SignUp extends Component {
           </button>
         </div>
         <p className="forgot-password text-right">
-          Already registered <a href="/sign-in">sign in?</a>
+          Already registered <a className = "sign-in-link" href="/sign-in">sign in?</a>
         </p>
       </form>
-    )
+    );
   }
 }

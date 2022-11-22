@@ -1,76 +1,70 @@
-import React, { Component } from 'react'
-import App from './App';
-
+import React, { Component } from "react";
+import App from "./App";
 
 export default class Login extends Component {
-  constructor(props){
-    super(props)
-    this.state ={
-      email:"",
-      password:"",
-      movID:"",
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+      movID: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  
-
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
-    //movies = email;
-    const {email, password, movID} = this.state;
-/*App.e = {email};
-App.p= {password};*/
-localStorage.setItem("email", email);
-localStorage.setItem("password", password);
-//movies = movID;
-    console.log(email, password,movID);
-    fetch("http://localhost:5000/login",{
+
+    const { email, password, movID } = this.state;
+
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+    //console.log(email, password, movID);
+    fetch("http://localhost:5555/login", {
       method: "POST",
       crossDomain: true,
-      headers:{
+      headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         email,
         password,
-        movID,
       }),
-    }).then((res)=> res.json())
-    .then((data)=>{
-      console.log(data, "userRegister");
     })
-
-
-
-
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "userRegister");
+        if (data.status == "ok") {
+          alert("login successful");
+          window.localStorage.setItem("token", data.data);
+        }
+      });
   }
 
   render() {
     return (
-      <form onSubmit ={this.handleSubmit}>
-        <h3>Sign In</h3>
+      <form className = "form" onSubmit={this.handleSubmit}>
+        <h3 className = "login-signin">Sign In</h3>
 
         <div className="mb-3">
-          <label>Email address</label>
+          <label className = "login-header">Email address</label>
           <input
             type="email"
             className="form-control"
             placeholder="Enter email"
-            onChange={e=>this.setState({email: e.target.value})}
+            onChange={(e) => this.setState({ email: e.target.value })}
           />
         </div>
 
         <div className="mb-3">
-          <label>Password</label>
+          <label className = "login-header">Password</label>
           <input
             type="password"
             className="form-control"
             placeholder="Enter password"
-            onChange={e=>this.setState({password: e.target.value})}
+            onChange={(e) => this.setState({ password: e.target.value })}
           />
         </div>
 
@@ -96,6 +90,6 @@ localStorage.setItem("password", password);
           Forgot <a href="#">password?</a>
         </p>
       </form>
-    )
+    );
   }
-  }
+}

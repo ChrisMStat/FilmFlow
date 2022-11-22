@@ -1,0 +1,154 @@
+/* the overall body of the html page; though this doesnt seem to work;
+   the others in this file probably override this one
+ */
+body
+{
+  background: #1c3333;
+}
+
+/* used for generic rows if needed */
+.row
+{
+}
+
+/* used for displaying movies horizontally in one row */
+.FilmFlow > .row
+{
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  background: #1c3333;
+  color: #ffffff;
+}
+
+/* used for the entire MovieBox div */
+.row > .movies-all
+{
+  width: 400px;
+}
+
+/* used for only the movie title if needed */
+.movie-title
+{
+}
+
+/* used for only the movie box image if needed */
+.movie-img
+{
+  inline-size: 400px;
+}
+
+/* used for only the movie box description/overview */
+.movie-description
+{
+  inline-size: 300px;
+  overflow-wrap: normal;
+}
+
+/* used for the category header (i.e. "Popular Right Now") */
+.category-header
+{
+  font-family: Impact;
+  text-decoration: underline;
+  color: white;
+  margin-left: 10px;
+}
+
+/* used for the navbar before clicking the offcanvas menu button if needed */
+.navbar
+{
+
+}
+
+div.offcanvas
+{
+  background: #1c3333;
+  color: white;
+}
+
+/* formatting for the overall login container */
+.Login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* formatting for the overall login form */
+.Login-form {
+  width: 420px;
+  box-shadow: rgb(0 0 0 / 35%) 1px 1px 10px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+}
+
+/* formatting for the form content boxes */
+.Login-form-content {
+  padding-left: 12%;
+  padding-right: 12%;
+  color: white;
+}
+
+/* formatting for form header */
+.Login-form-title {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 24px;
+  color: white;
+  font-weight: 800;
+}
+
+/* formatting for box headers/titles */
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+/* formatting for the about us page */
+.about-us-page {
+  color: white;
+  white-space: pre-wrap;
+}
+
+/* formatting for the modal popup (movie description) */
+.movie_popup {
+}
+
+/* formatting for header in the modal */
+.movie_popup .modal-header {
+  /*border-bottom: 0 none;
+   */
+  border-bottom-color: black;
+}
+
+/* formatting for footer in the modal */
+.movie_popup .modal-footer {
+  /*border-top: 0 none;
+   */
+  border-top-color: black;
+}
+
+/* formatting for the text body in the modal */
+.movie_popup .modal-content {
+  background-color: #1c3333;
+  color: white;
+}
+
+/* search section */
+.search_bar {
+  text-align: center;
+  display: flex;
+  margin-left: 31px;
+}
+
+/* search bar/box */
+.search_box {
+  margin-left: 10px;
+  background-color: white;
+}
+
+/* row of searched movies */
+.search_row {
+}
