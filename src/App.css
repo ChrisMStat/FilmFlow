@@ -1,0 +1,172 @@
+/* the overall body of hte html page; though this doesnt seem to work;
+   the others in this file probably override this one
+ */
+body
+{
+  background: #1c3333;
+}
+
+/* used for generic rows if needed */
+.row
+{
+}
+
+/* used for displaying movies horizontally in one row */
+.FilmFlow > .row
+{
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  background: #1c3333;
+  color: #ffffff;
+}
+
+/* used for the entire MovieBox div */
+.row > .movies-all
+{
+  width: 400px;
+}
+
+/* used for only the movie title if needed */
+.movie-title
+{
+}
+
+/* used for only the movie box image if needed */
+.movie-img
+{
+  inline-size: 400px;
+}
+
+/* used for only the movie box description/overview */
+.movie-description
+{
+  inline-size: 300px;
+  overflow-wrap: normal;
+}
+
+/* used for the category header (i.e. "Popular Right Now") */
+.category-header
+{
+  font-family: Impact;
+  text-decoration: underline;
+  color: white;
+}
+
+/* used for the navbar before clicking the offcanvas menu button if needed */
+.navbar
+{
+
+}
+
+div.offcanvas
+{
+  background: #1c3333;
+  color: white;
+}
+
+/* Login/Sign UP header */
+.login-signin {
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* login/signup form */
+.form {
+  max-width: 40%;
+  margin: auto;
+  box-shadow: rgb(0 0 0 / 85%) 1px 1px 10px;
+  border-radius: 20px;
+}
+
+/* login text bars */
+.form-control {
+  max-width: 75%;
+  margin-left: 10px;
+  margin: auto;
+}
+
+/* already registered text and sign in link */
+.forgot-password {
+  color: white;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* already registered? sign in link*/
+.sign-in-link {
+  margin-left: 2px;
+}
+
+/* formatting for box headers/titles */
+.login-header {
+  display: block;
+  text-align: center;
+  color: white;
+  padding-bottom: 5px;
+}
+
+/* signin.signup submit button */
+.btn-primary {
+  max-width: 95%;
+  min-width: 95%;
+  margin: auto;
+  font-weight: bold;
+}
+
+/* remember me checkbox */
+.custom-control {
+  color: white;
+  text-align: center;
+}
+
+/* remember me label */
+.custom-control-label {
+  padding-left: 5px;
+}
+
+/* formatting for the about us page */
+.about-us-page {
+  color: white;
+  white-space: pre-wrap;
+}
+
+/* formatting for header in the modal */
+.movie_popup .modal-header {
+  /*border-bottom: 0 none;
+   */
+  border-bottom-color: black;
+}
+
+/* formatting for footer in the modal */
+.movie_popup .modal-footer {
+  /*border-top: 0 none;
+   */
+  border-top-color: black;
+}
+
+/* formatting for the text body in the modal */
+.movie_popup .modal-content {
+  background-color: #1c3333;
+  color: white;
+}
+
+/* search section */
+.search_bar {
+  text-align: center;
+  display: flex;
+  margin-left: 31px;
+}
+
+/* search bar/box */
+.search_box {
+  margin-left: 10px;
+  background-color: white;
+}
+
+/* row of searched movies */
+.search_row {
+}
