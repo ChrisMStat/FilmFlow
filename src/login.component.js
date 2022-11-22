@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import App from "./App";
+import {withRouter} from './withRouter';
 
-export default class Login extends Component {
+
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,6 +40,7 @@ export default class Login extends Component {
         if (data.status == "ok") {
           alert("login successful");
           window.localStorage.setItem("token", data.data);
+            this.props.navigate('/movies');
         }
       });
   }
@@ -93,3 +95,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default withRouter(Login);
