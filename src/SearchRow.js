@@ -39,7 +39,7 @@ function AddLikedMovie(id) {
       .then((data) => {
         console.log(data, "userRegister");
       });
-  window.location.reload();       //refreshes page on click, its kind of obnoxious but it does function properly
+  //window.location.reload();       //refreshes page on click, its kind of obnoxious but it does function properly
 }
 
 function AddDislikedMovie(id) {
@@ -68,7 +68,7 @@ function AddDislikedMovie(id) {
       .then((data) => {
         console.log(data, "userRegister");
       });
-  window.location.reload();       //refreshes page on click, its kind of obnoxious but it does function properly
+  //window.location.reload();       //refreshes page on click, its kind of obnoxious but it does function properly
 }
 
 function SearchRow({ title, fetchUrl, isLargeRow }) {

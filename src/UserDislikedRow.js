@@ -40,6 +40,36 @@ export default class UserRow extends Component {
             });
     }
 
+    RemoveMovie(id) {
+        //result = id;
+
+        var email = localStorage.getItem("email"); //retrieve the email from local storage
+        var password = localStorage.getItem("password"); //retrieve the password from local storage
+        var movID = id;
+
+        fetch("http://localhost:5555/deletebadmovie", {
+            method: "DELETE",
+            crossDomain: true,
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+
+            body: JSON.stringify({
+                email,
+                password,
+                movID,
+            }),
+
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data, "userRegister");
+            });
+        window.location.reload();       //refreshes page on click, its kind of obnoxious but it does function properly
+    }
+
     render() {
         const base_url = "https://image.tmdb.org/t/p/original/";
         var title = "Disliked Movies";
@@ -89,7 +119,10 @@ export default class UserRow extends Component {
                         <Button variant="secondary" onClick={() => this.setState({movies: this.state.movies, show: !this.state.show })} >
                             Close
                         </Button>
-                        <Button variant="warning" onClick={() => this.setState({movies: this.state.movies, show: !this.state.show })} >
+                        <Button variant="warning" onClick={() => {
+                            this.RemoveMovie(movie_all);
+                            this.setState({movies: this.state.movies, show: !this.state.show })
+                        }} >
                             Undislike
                         </Button>
                     </Modal.Footer>

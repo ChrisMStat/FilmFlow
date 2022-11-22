@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import {withRouter} from './withRouter';
 
-export default class SignUp extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +16,6 @@ export default class SignUp extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { fname, lname, email, password } = this.state;
-    //console.log(fname, lname, email, password);
     fetch("http://localhost:5555/register", {
       method: "POST",
       crossDomain: true,
@@ -35,6 +35,7 @@ export default class SignUp extends Component {
       .then((data) => {
         console.log(data, "userRegister");
       });
+      this.props.navigate('/sign-in');
   }
   render() {
     return (
@@ -93,3 +94,5 @@ export default class SignUp extends Component {
     );
   }
 }
+
+export default withRouter(SignUp);
