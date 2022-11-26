@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
@@ -8,7 +8,6 @@ var movie_description = "";
 var movie_name = "";
 var movie_poster = "";
 const API_IMG = "https://image.tmdb.org/t/p/w200";
-
 
 export default class UserRow extends Component {
   constructor(props) {
@@ -32,12 +31,12 @@ export default class UserRow extends Component {
         token: localStorage.getItem("token"),
       }),
     })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data, "userInfo");
-          // console.log(data.data.movID);
-          this.setState({ movies: data.data.movID });
-        });
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "userInfo");
+        // console.log(data.data.movID);
+        this.setState({ movies: data.data.movID });
+      });
   }
 
   RemoveMovie(id) {
@@ -48,7 +47,7 @@ export default class UserRow extends Component {
     var movID = id;
 
     fetch("http://localhost:5555/deletemovie", {
-      method: "DELETE",
+      method: "POST",
       crossDomain: true,
       headers: {
         "Content-Type": "application/json",
@@ -61,13 +60,13 @@ export default class UserRow extends Component {
         password,
         movID,
       }),
-
     })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data, "userRegister");
-        });
-    window.location.reload();       //refreshes page on click, its kind of obnoxious but it does function properly
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "userMov");
+        this.componentDidMount();
+      });
+    //  window.location.reload();       //refreshes page on click, its kind of obnoxious but it does function properly
   }
 
   render() {
@@ -76,59 +75,78 @@ export default class UserRow extends Component {
     var isLargeRow = false;
 
     return (
-        <div className="row">
-          <div className="category-header">
-            <h2>{title}</h2>
-          </div>
-
-          <div className="row__posters">
-            {this.state.movies.map((movie, index) => (
-                <>
-                  <img
-                      className={`row__poster  ${isLargeRow && "row__posterLarge"}`}
-                      key={movie.id}
-                      src={`${base_url}${
-                          isLargeRow ? movie.poster_path : movie.backdrop_path
-                      }`}
-                      alt={movie.name}
-                      onClick={() => {
-                        this.componentDidMount();
-                        movie_all = movie;
-                        movie_id = movie.id;
-                        movie_name = movie.title;
-                        movie_description = movie.overview;
-                        movie_poster = (API_IMG) + (movie.poster_path);
-                        this.setState({movies: this.state.movies, show: !this.state.show });
-                      }}
-                  ></img>
-                </>
-            ))}
-          </div>
-
-          <Modal className = "movie_popup" show={this.state.show} >
-            <Modal.Header closeButton>
-              <Modal.Title> <b>{movie_name}</b> </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <img className = "img-fluid" src = {movie_poster}></img>
-              <p>
-                <b> Synopsis: </b> {movie_description}
-              </p>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={() => this.setState({movies: this.state.movies, show: !this.state.show })} >
-                Close
-              </Button>
-              <Button variant="warning" onClick={() => {
-                this.RemoveMovie(movie_all);
-                this.setState({movies: this.state.movies, show: !this.state.show })
-              }} >
-                Unlike
-              </Button>
-            </Modal.Footer>
-          </Modal>
-
+      <div className="row">
+        <div className="category-header">
+          <h2>{title}</h2>
         </div>
+
+        <div className="row__posters">
+          {this.state.movies.map((movie, index) => (
+            <>
+              <img
+                className={`row__poster  ${isLargeRow && "row__posterLarge"}`}
+                key={movie.id}
+                src={`${base_url}${
+                  isLargeRow ? movie.poster_path : movie.backdrop_path
+                }`}
+                alt={movie.name}
+                onClick={() => {
+                  this.componentDidMount();
+                  movie_all = movie;
+                  movie_id = movie.id;
+                  movie_name = movie.title;
+                  movie_description = movie.overview;
+                  movie_poster = API_IMG + movie.poster_path;
+                  this.setState({
+                    movies: this.state.movies,
+                    show: !this.state.show,
+                  });
+                }}
+              ></img>
+            </>
+          ))}
+        </div>
+
+        <Modal className="movie_popup" show={this.state.show}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              {" "}
+              <b>{movie_name}</b>{" "}
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <img className="img-fluid" src={movie_poster}></img>
+            <p>
+              <b> Synopsis: </b> {movie_description}
+            </p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="secondary"
+              onClick={() =>
+                this.setState({
+                  movies: this.state.movies,
+                  show: !this.state.show,
+                })
+              }
+            >
+              Close
+            </Button>
+            <Button
+              variant="warning"
+              onClick={() => {
+                this.RemoveMovie(movie_all);
+                this.setState({
+                  movies: this.state.movies,
+                  show: !this.state.show,
+                });
+              }}
+            >
+              Unlike
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
     );
   }
 }

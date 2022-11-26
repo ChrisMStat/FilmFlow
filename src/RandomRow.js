@@ -71,7 +71,7 @@ function AddDislikedMovie(id) {
   //window.location.reload();       //refreshes page on click, its kind of obnoxious but it does function properly
 }
 
-function SearchRow({ title, fetchUrl, isLargeRow }) {
+function RandomRow({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
 
   const [show, setShow] = useState(false);
@@ -80,7 +80,7 @@ function SearchRow({ title, fetchUrl, isLargeRow }) {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
-      //console.log(request.data.results);
+      console.log(Math.floor(Math.random() * request.data.results.length));
       setMovies(request.data.results);
       return request;
     }
@@ -159,4 +159,4 @@ function SearchRow({ title, fetchUrl, isLargeRow }) {
   );
 }
 
-export default SearchRow;
+export default RandomRow;
