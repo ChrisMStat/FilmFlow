@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SearchRow from "./SearchRow.js";
-import Row from "./Row.js";
-import MovieBox from "./MovieBox";
-import MovieBoxHeader from "./MovieBoxHeader";
 import NavMenu from "./NavMenu";
-import requests from "./requests";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Login from "./login.component";
-import SignUP from "./signup.component";
 import MovieRowsPage from "./MovieRowsPage";
 import AboutUs from "./AboutUs";
 import SignUp from "./signup.component";
+import UserProfile from "./UserProfile";
 
 function App() {
   var e;
@@ -37,6 +32,8 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/movies" element={<MovieRowsPage />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/profile" element={<UserProfile />} />
+          <Route path="/" element={<Navigate to="/sign-up" />} />
         </Routes>
       </BrowserRouter>
     </div>

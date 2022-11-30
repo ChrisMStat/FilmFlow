@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import {withRouter} from './withRouter';
 
-export default class SignUp extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,8 +16,7 @@ export default class SignUp extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { fname, lname, email, password } = this.state;
-    //console.log(fname, lname, email, password);
-    fetch("http://localhost:5000/register", {
+    fetch("http://localhost:5555/register", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -35,14 +35,15 @@ export default class SignUp extends Component {
       .then((data) => {
         console.log(data, "userRegister");
       });
+      this.props.navigate('/sign-in');
   }
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h3>Sign Up</h3>
+      <form className = "form" onSubmit={this.handleSubmit}>
+        <h3 className = "login-signin">Sign Up</h3>
 
         <div className="mb-3">
-          <label>First name</label>
+          <label className = "login-header">First name</label>
           <input
             type="text"
             className="form-control"
@@ -52,7 +53,7 @@ export default class SignUp extends Component {
         </div>
 
         <div className="mb-3">
-          <label>Last name</label>
+          <label className = "login-header">Last name</label>
           <input
             type="text"
             className="form-control"
@@ -62,7 +63,7 @@ export default class SignUp extends Component {
         </div>
 
         <div className="mb-3">
-          <label>Email address</label>
+          <label className = "login-header">Email address</label>
           <input
             type="email"
             className="form-control"
@@ -72,7 +73,7 @@ export default class SignUp extends Component {
         </div>
 
         <div className="mb-3">
-          <label>Password</label>
+          <label className = "login-header">Password</label>
           <input
             type="password"
             className="form-control"
@@ -87,9 +88,11 @@ export default class SignUp extends Component {
           </button>
         </div>
         <p className="forgot-password text-right">
-          Already registered <a href="/sign-in">sign in?</a>
+          Already registered <a className = "sign-in-link" href="/sign-in">sign in?</a>
         </p>
       </form>
     );
   }
 }
+
+export default withRouter(SignUp);

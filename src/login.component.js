@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import App from "./App";
+import {withRouter} from './withRouter';
 
-export default class Login extends Component {
+
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +21,7 @@ export default class Login extends Component {
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
     //console.log(email, password, movID);
-    fetch("http://localhost:5000/login", {
+    fetch("http://localhost:5555/login", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -39,17 +40,18 @@ export default class Login extends Component {
         if (data.status == "ok") {
           alert("login successful");
           window.localStorage.setItem("token", data.data);
+            this.props.navigate('/movies');
         }
       });
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h3>Sign In</h3>
+      <form className = "form" onSubmit={this.handleSubmit}>
+        <h3 className = "login-signin">Sign In</h3>
 
         <div className="mb-3">
-          <label>Email address</label>
+          <label className = "login-header">Email address</label>
           <input
             type="email"
             className="form-control"
@@ -59,7 +61,7 @@ export default class Login extends Component {
         </div>
 
         <div className="mb-3">
-          <label>Password</label>
+          <label className = "login-header">Password</label>
           <input
             type="password"
             className="form-control"
@@ -93,3 +95,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default withRouter(Login);

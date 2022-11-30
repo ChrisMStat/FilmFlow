@@ -64,44 +64,68 @@ div.offcanvas
   color: white;
 }
 
-/* formatting for the overall login container */
-.Login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-}
-
-/* formatting for the overall login form */
-.Login-form {
-  width: 420px;
-  box-shadow: rgb(0 0 0 / 35%) 1px 1px 10px;
-  padding-top: 30px;
-  padding-bottom: 20px;
-  border-radius: 8px;
-}
-
-/* formatting for the form content boxes */
-.Login-form-content {
-  padding-left: 12%;
-  padding-right: 12%;
+/* Login/Sign UP header */
+.login-signin {
   color: white;
-}
-
-/* formatting for form header */
-.Login-form-title {
   text-align: center;
-  margin-bottom: 1em;
-  font-size: 24px;
-  color: white;
-  font-weight: 800;
+  padding-top: 10px;
+  text-decoration: underline;
+  font-weight: bold;
 }
-/* formatting for box headers/titles */
-label {
-  font-size: 14px;
-  font-weight: 600;
+
+/* login/signup form */
+.form {
+  max-width: 40%;
+  margin: auto;
+  box-shadow: rgb(0 0 0 / 85%) 1px 1px 10px;
+  border-radius: 20px;
+}
+
+/* login text bars */
+.form-control {
+  max-width: 75%;
+  margin-left: 10px;
+  margin: auto;
+}
+
+/* already registered text and sign in link */
+.forgot-password {
   color: white;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* already registered? sign in link*/
+.sign-in-link {
+  margin-left: 2px;
+}
+
+/* formatting for box headers/titles */
+.login-header {
+  display: block;
+  text-align: center;
+  color: white;
+  padding-bottom: 5px;
+}
+
+/* signin.signup submit button */
+.btn-primary {
+  max-width: 95%;
+  min-width: 95%;
+  margin: auto;
+  font-weight: bold;
+}
+
+/* remember me checkbox */
+.custom-control {
+  color: white;
+  text-align: center;
+}
+
+/* remember me label */
+.custom-control-label {
+  padding-left: 5px;
 }
 
 /* formatting for the about us page */
@@ -110,50 +134,39 @@ label {
   white-space: pre-wrap;
 }
 
-/*
-// Originally created code below
-// Probably delete, but saving it just in case it solves
-// any bugs or issues down the road
- */
-
-/*
-.App {
-  text-align: center;
+/* formatting for header in the modal */
+.movie_popup .modal-header {
+  /*border-bottom: 0 none;
+   */
+  border-bottom-color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* formatting for footer in the modal */
+.movie_popup .modal-footer {
+  /*border-top: 0 none;
+   */
+  border-top-color: black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* formatting for the text body in the modal */
+.movie_popup .modal-content {
+  background-color: #1c3333;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* search section */
+.search_bar {
+  text-align: center;
+  display: flex;
+  margin-left: 31px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* search bar/box */
+.search_box {
+  margin-left: 10px;
+  background-color: white;
 }
 
- */
+/* row of searched movies */
+.search_row {
+}
