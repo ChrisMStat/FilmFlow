@@ -1,6 +1,11 @@
-/* the overall body of hte html page; though this doesnt seem to work;
-   the others in this file probably override this one
- */
+@import url('http://fonts.googleapis.com/css?family=Monoton');
+@import url('http://fonts.googleapis.com/css?family=Limelight');
+@import url('http://fonts.googleapis.com/css?family=Poiret+One');
+
+
+
+/* the overall body of the html page; though this doesnt seem to work;
+   the others in this file probably override this one */
 body
 {
   background: #1c3333;
@@ -47,7 +52,7 @@ body
 /* used for the category header (i.e. "Popular Right Now") */
 .category-header
 {
-  font-family: Impact;
+  font-family: "Impact";
   text-decoration: underline;
   color: white;
 }
@@ -55,13 +60,14 @@ body
 /* used for the navbar before clicking the offcanvas menu button if needed */
 .navbar
 {
-
+  //border-bottom: 3px solid#808080;
 }
 
 div.offcanvas
 {
   background: #1c3333;
   color: white;
+  font-family: Impact;
 }
 
 /* Login/Sign UP header */
@@ -132,6 +138,23 @@ div.offcanvas
 .about-us-page {
   color: white;
   white-space: pre-wrap;
+  text-align: center;
+  font-size: 32px;
+  font-family: Impact;
+}
+
+/* About us page headers */
+.about_headers {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* About us page team members */
+.about_members {
+}
+
+/* About us page team members */
+.about_devduo {
 }
 
 /* formatting for header in the modal */
@@ -169,4 +192,142 @@ div.offcanvas
 
 /* row of searched movies */
 .search_row {
+}
+
+/* Title/header in Navbar at top of page */
+.nav_title {
+
+  color: white;
+  font-family: "Monoton";
+  font-weight: bold;
+  //text-decoration: underline;
+  text-align: center;
+  //font-size: 32px;
+  padding-top: 10px;
+}
+
+/* The column that nav_title is held within */
+.nav_title_col {
+}
+
+.right_col {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.recommend_button {
+  background:transparent;
+  color: white;
+  border: 2px solid white;
+  //border-style: wave;
+  font-family: Impact;
+  //padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition-duration: 0.6s;
+
+
+
+  //border-color: white;
+
+  //border:none;
+
+
+  border-radius: 10% / 50%;
+}
+
+.recommend_button:hover {
+  background-color: darkcyan;
+  //border: #1c3333;
+  color: white;
+
+}
+
+.menu_header {
+  font-family: "Monoton";
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+button.nav_button_box {
+  background: transparent;
+  border-color: transparent;
+  transition-duration: 1.6s;
+}
+
+button.nav_button_box:hover {
+  background: #1c3333;
+}
+
+.menu_movie_button {
+  text-align: center;
+}
+
+.movie_rec_entire {
+  text-align: center;
+}
+
+.rec_title {
+  color:white;
+  font-family: Impact;
+  text-decoration: underline;
+  font-size: 50px;
+  //font-weight: bold;
+  //border-bottom: 2px solid white;
+}
+
+.rec_poster {
+  grid-column-start: 1;
+  //text-align: center;
+}
+
+.rec_synopsis {
+  color:white;
+  display: grid;
+  text-wrap: normal;
+  //margin: 30px;
+  //margin-right: 300px;
+  margin-left: 10px;
+  grid-column-start: 2;
+  //grid-row-start: 1;
+}
+
+.rec_synopsis_header {
+  color:white;
+  font-family: Impact;
+  font-size: 30px;
+  grid-row-start: 1;
+}
+
+.rec_grid {
+  display: grid;
+  //text-align: center;
+  //margin:80px;
+  margin-left: 300px;
+  margin-right: 300px;
+  margin-top: 50px;
+}
+
+.rec_text {
+  grid-row-start: 2;
+}
+
+.next_rec {
+  background:transparent;
+  color: white;
+  border: 2px solid white;
+  font-family: Impact;
+  transition-duration: 0.6s;
+  border-radius: 10% / 50%;
+  grid-row-start: 3;
+  margin: auto;
+  font-size: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition-duration: 0.6s;
+}
+
+button.next_rec:hover {
+  background-color: darkcyan;
 }

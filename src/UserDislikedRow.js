@@ -66,7 +66,7 @@ export default class UserRow extends Component {
         console.log(data, "badmoviedelete");
         this.componentDidMount();
       });
-    //    window.location.reload();       //refreshes page on click, its kind of obnoxious but it does function properly
+    window.location.reload();       //refreshes page on click, its kind of obnoxious but it does function properly
   }
 
   render() {

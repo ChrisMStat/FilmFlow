@@ -8,6 +8,7 @@ import MovieRowsPage from "./MovieRowsPage";
 import AboutUs from "./AboutUs";
 import SignUp from "./signup.component";
 import UserProfile from "./UserProfile";
+import Recommendation from "./Recommendation";
 
 function App() {
   var e;
@@ -34,6 +35,7 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/" element={<Navigate to="/sign-up" />} />
+          <Route path="/recommendation" element={<Recommendation />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -6,17 +6,21 @@ body
   background: #1c3333;
 }
 
+/*
 .category-header
 {
   font-family: Impact;
   text-decoration: underline;
   color: white;
 }
+
+ */
 .row__posters{
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
     padding: 20px;
+
 }
 .row__posters::-webkit-scrollbar{
     display: none;
@@ -33,7 +37,7 @@ body
     transform: scale(1.08);
 }
 .row__posterLarge{
-    max-height: 250px;
+    max-height: 300px;
 }
 
 .row__posterLarge:hover{
