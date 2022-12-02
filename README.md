@@ -30,7 +30,7 @@ Code is running on
 
 If not registered enter first name, last name, email and password then press Sign Up to be directed to the sign in page.
 
-If already registered then click sign in? to be directed to the sign in page.
+If already registered then click "sign in?" to be directed to the sign in page.
 
 ## In the Sign in page
 
