@@ -1,32 +1,16 @@
+/* Navigation Bar and Menu */
+
 //code referenced from https://react-bootstrap.github.io/components/navbar/#color-schemes and further edited
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import React, {useState} from "react";
+import React from "react";
 import Col from "react-bootstrap/Col";
 
-import requests from './requests';
-
-
 function NavMenu() {
-    const[query, setQuery]= useState("");
-    const[results,setResults]= useState([]);
 
-const onChange = e => {
-    e.preventDefault();
-    setQuery(e.target.value);
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=518f0cf1333524b8ec0f30f5fb0b224a&query=${e.target.value}`
-    ).then((res)=> res.json()).then((data)=>{
-        if(!data.errors){
-            setResults(data.results);
-            console.log(data.results);
-        }else{
-            setResults([]);
-        }
-    });
-}
     return (
         <div>
             {[false].map((expand) => (

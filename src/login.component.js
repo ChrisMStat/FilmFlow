@@ -1,6 +1,7 @@
+/* Login Page */
+
 import React, { Component } from "react";
 import {withRouter} from './withRouter';
-
 
 class Login extends Component {
   constructor(props) {
@@ -20,7 +21,6 @@ class Login extends Component {
 
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
-    //console.log(email, password, movID);
     fetch("http://localhost:5555/login", {
       method: "POST",
       crossDomain: true,

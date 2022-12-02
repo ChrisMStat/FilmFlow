@@ -1,3 +1,5 @@
+/* Individual Movie Row */
+
 import React, { useState, useEffect, Component } from "react";
 import axios from "./axios";
 import "./Row.css";
@@ -5,7 +7,6 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 const base_url = "https://image.tmdb.org/t/p/original/";
-var result;
 var movie_all;
 var movie_id = -1;
 var movie_description = "";
@@ -14,8 +15,6 @@ var movie_poster = "";
 const API_IMG = "https://image.tmdb.org/t/p/w200";
 
 function AddLikedMovie(id) {
-  result = id;
-
   var email = localStorage.getItem("email"); //retrieve the email from local storage
   var password = localStorage.getItem("password"); //retrieve the password from local storage
   var movID = id;
@@ -43,8 +42,6 @@ function AddLikedMovie(id) {
 }
 
 function AddDislikedMovie(id) {
-  result = id;
-
   var email = localStorage.getItem("email"); //retrieve the email from local storage
   var password = localStorage.getItem("password"); //retrieve the password from local storage
   var movID = id;
@@ -73,7 +70,6 @@ function AddDislikedMovie(id) {
 
 function Row({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
 
@@ -106,7 +102,6 @@ function Row({ title, fetchUrl, isLargeRow }) {
               }`}
               alt={movie.name}
               onClick={() => {
-                //test(movie)
                 movie_all = movie;
                 movie_id = movie.id;
                 movie_name = movie.title;

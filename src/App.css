@@ -1,8 +1,4 @@
 @import url('http://fonts.googleapis.com/css?family=Monoton');
-@import url('http://fonts.googleapis.com/css?family=Limelight');
-@import url('http://fonts.googleapis.com/css?family=Poiret+One');
-
-
 
 /* the overall body of the html page; though this doesnt seem to work;
    the others in this file probably override this one */
@@ -63,6 +59,7 @@ body
   //border-bottom: 3px solid#808080;
 }
 
+/* formatting for nav pop out menu */
 div.offcanvas
 {
   background: #1c3333;
@@ -159,15 +156,11 @@ div.offcanvas
 
 /* formatting for header in the modal */
 .movie_popup .modal-header {
-  /*border-bottom: 0 none;
-   */
   border-bottom-color: black;
 }
 
 /* formatting for footer in the modal */
 .movie_popup .modal-footer {
-  /*border-top: 0 none;
-   */
   border-top-color: black;
 }
 
@@ -196,14 +189,16 @@ div.offcanvas
 
 /* Title/header in Navbar at top of page */
 .nav_title {
-
   color: white;
   font-family: "Monoton";
   font-weight: bold;
-  //text-decoration: underline;
   text-align: center;
-  //font-size: 32px;
   padding-top: 10px;
+  transition: 1.4s;
+}
+/* changes color of FilmFlow on navbar when hovered over */
+.nav_title:hover{
+  color: #FBFF62;
 }
 
 /* The column that nav_title is held within */
@@ -216,103 +211,98 @@ div.offcanvas
   justify-items: center;
 }
 
+/* recommend movie button in nav menu */
 .recommend_button {
   background:transparent;
   color: white;
   border: 2px solid white;
-  //border-style: wave;
   font-family: Impact;
-  //padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   transition-duration: 0.6s;
-
-
-
-  //border-color: white;
-
-  //border:none;
-
-
   border-radius: 10% / 50%;
 }
 
+/* changes color when hovered over */
 .recommend_button:hover {
   background-color: darkcyan;
-  //border: #1c3333;
   color: white;
-
 }
 
+/* nav menu FIlmFlow header */
 .menu_header {
   font-family: "Monoton";
   text-decoration: underline;
   font-weight: bold;
+  transition: 0.7s;
 }
 
+/* navbar menu button on the top left of page */
 button.nav_button_box {
   background: transparent;
   border-color: transparent;
   transition-duration: 1.6s;
 }
 
+/* hover effect for the button */
 button.nav_button_box:hover {
   background: #1c3333;
 }
 
+/* formatting/spacing for the recommended movie button  */
 .menu_movie_button {
   text-align: center;
 }
 
+/* formatting for overall recommended movie page */
 .movie_rec_entire {
   text-align: center;
 }
 
+/* recommended movie title */
 .rec_title {
   color:white;
   font-family: Impact;
   text-decoration: underline;
   font-size: 50px;
-  //font-weight: bold;
-  //border-bottom: 2px solid white;
 }
-
+/* recommended movie poster */
 .rec_poster {
   grid-column-start: 1;
-  //text-align: center;
 }
-
+/* recommended movie description */
 .rec_synopsis {
   color:white;
   display: grid;
   text-wrap: normal;
-  //margin: 30px;
-  //margin-right: 300px;
   margin-left: 10px;
   grid-column-start: 2;
-  //grid-row-start: 1;
 }
 
+/* recommended movie description header */
 .rec_synopsis_header {
   color:white;
   font-family: Impact;
   font-size: 30px;
   grid-row-start: 1;
+  margin-bottom: 0px;
 }
 
+/* recommended movie description grid */
 .rec_grid {
   display: grid;
-  //text-align: center;
-  //margin:80px;
   margin-left: 300px;
   margin-right: 300px;
   margin-top: 50px;
 }
 
+/* recommended movie description text */
 .rec_text {
   grid-row-start: 2;
+  margin-top: 5px;
 }
 
+/* button on recommended movie page to recommended a new movie */
 .next_rec {
   background:transparent;
   color: white;
@@ -328,6 +318,7 @@ button.nav_button_box:hover {
   transition-duration: 0.6s;
 }
 
+/* hover effect for the button */
 button.next_rec:hover {
   background-color: darkcyan;
 }

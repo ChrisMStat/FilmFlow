@@ -1,4 +1,6 @@
-import React, {Component, useEffect} from "react";
+/* Recommended movie row on User Profile page */
+
+import React, {Component} from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
@@ -10,7 +12,7 @@ var movie_poster = "";
 const API_IMG = "https://image.tmdb.org/t/p/w200";
 
 var GenreVariable = 0;
-var randompage = Math.floor(Math.random() * 500);
+var randompage = Math.floor(Math.random() * 200);
 var liked_movies = [];
 
 export default class RecRow extends Component {
@@ -39,7 +41,6 @@ export default class RecRow extends Component {
             .then((data) => {
                 console.log(data, "userInfo");
                 liked_movies = data.data.movID;
-
                 this.countGenres();
             });
     }
@@ -48,7 +49,6 @@ export default class RecRow extends Component {
     countGenres()
     {
         const genres = [];
-
         for (var i = 0; i < liked_movies.length; i++) {
             var list = liked_movies[i].genre_ids;
             for (var j = 0; j < list.length; j++) {
@@ -72,13 +72,13 @@ export default class RecRow extends Component {
 
         // finding most frequent genre
         let highest_genre = genres[0];
-        for (var i = 0; i < genres.length; i++)
+        for (var k = 0; k < genres.length; k++)
         {
-            for (var j = i; j < genres.length; j++)
+            for (var l = k; l < genres.length; l++)
             {
-                if (genres[j].count > genres[i].count && genres[j].count > highest_genre.count)
+                if (genres[l].count > genres[k].count && genres[l].count > highest_genre.count)
                 {
-                    highest_genre = genres[j];
+                    highest_genre = genres[l];
                 }
             }
         }
@@ -192,7 +192,13 @@ export default class RecRow extends Component {
                         <Modal.Title> <b>{movie_name}</b> </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <img className = "img-fluid" src = {movie_poster}></img>
+                        <img className = "img-fluid"
+                             key = {movie_id}
+                             src = {movie_poster}
+                             alt = {movie_name}
+                        >
+
+                        </img>
                         <p>
                             <b> Synopsis: </b> {movie_description}
                         </p>

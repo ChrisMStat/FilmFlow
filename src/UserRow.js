@@ -1,3 +1,5 @@
+/* Row for the user's liked movie; displayed on their profile page */
+
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -34,14 +36,11 @@ export default class UserRow extends Component {
       .then((res) => res.json())
       .then((data) => {
         console.log(data, "userInfo");
-        // console.log(data.data.movID);
         this.setState({ movies: data.data.movID });
       });
   }
 
   RemoveMovie(id) {
-    //result = id;
-
     var email = localStorage.getItem("email"); //retrieve the email from local storage
     var password = localStorage.getItem("password"); //retrieve the password from local storage
     var movID = id;

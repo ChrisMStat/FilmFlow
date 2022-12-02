@@ -1,20 +1,13 @@
+/* Used to format movie rows */
+
 .row{
     margin-left: 20px;
 }
 body
 {
-  background: #1c3333;
+    background: #1c3333;
 }
 
-/*
-.category-header
-{
-  font-family: Impact;
-  text-decoration: underline;
-  color: white;
-}
-
- */
 .row__posters{
     display: flex;
     overflow-y: hidden;

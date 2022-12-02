@@ -1,3 +1,5 @@
+/* Row for the user's disliked movie; displayed on their profile page */
+
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -34,13 +36,11 @@ export default class UserRow extends Component {
       .then((res) => res.json())
       .then((data) => {
         console.log(data, "userInfo");
-        // console.log(data.data.movID);
         this.setState({ movies: data.data.badmovID });
       });
   }
 
   RemoveMovie(id) {
-    //result = id;
     console.log(id);
     var email = localStorage.getItem("email"); //retrieve the email from local storage
     var password = localStorage.getItem("password"); //retrieve the password from local storage
@@ -115,7 +115,13 @@ export default class UserRow extends Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <img className="img-fluid" src={movie_poster}></img>
+            <img className="img-fluid"
+                 key = {movie_id}
+                 src={movie_poster}
+                 alt = {movie_name}
+            >
+
+            </img>
             <p>
               <b> Synopsis: </b> {movie_description}
             </p>

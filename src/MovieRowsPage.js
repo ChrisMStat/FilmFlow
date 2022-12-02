@@ -1,11 +1,12 @@
+/* Used to hold all of the movie rows */
+
 import SearchRow from "./SearchRow";
 import Row from "./Row";
 import requests from "./requests";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 export default function (props) {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
 
   const onChange = (e) => {
     e.preventDefault();

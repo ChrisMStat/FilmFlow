@@ -1,14 +1,12 @@
-import React, { useState, useEffect, Component } from "react";
+/* Recommended movie page; used to display a single recommended movie and its info */
+
+import React, { useState } from "react";
 import "./Row.css";
-import Button from "react-bootstrap/Button";
 
 var GenreVariable = 0;
-var randompage = Math.floor(Math.random() * 500);
+var randompage = Math.floor(Math.random() * 200);
 var liked_movies = [];
-//var movie;
-const base_url = "https://image.tmdb.org/t/p/original/";
 const API_IMG = "https://image.tmdb.org/t/p/w300";
-
 
 export default function (props) {
 
@@ -64,13 +62,13 @@ export default function (props) {
 
         // finding most frequent genre
         let highest_genre = genres[0];
-        for (var i = 0; i < genres.length; i++)
+        for (var k = 0; k < genres.length; k++)
         {
-            for (var j = i; j < genres.length; j++)
+            for (var l = k; l < genres.length; l++)
             {
-                if (genres[j].count > genres[i].count && genres[j].count > highest_genre.count)
+                if (genres[l].count > genres[k].count && genres[l].count > highest_genre.count)
                 {
-                    highest_genre = genres[j];
+                    highest_genre = genres[l];
                 }
             }
         }
@@ -88,40 +86,7 @@ export default function (props) {
 
         })
     }
-
-/*
-    return
-    {
-        <div>
-            <h1 className="testing_page">TESTING</h1>
-            {movies.slice(0,1).map((movie, index) => (
-             <h1>
-                 {movie.title}
-             </h1>
-            ))}
-        </div>
-    }
-*/
-        const [show, setShow] = useState(false);
-        const handleClose = () => setShow(false);
-
         getLikedMovies();
-
-        /*
-        useEffect(() => {
-            async function fetchData() {
-                const request = await axios.get(fetchUrl);
-                console.log(request.data.results);
-                setMovies(request.data.results);
-                return request;
-            }
-            fetchData();
-        }, [fetchUrl]);
-
-        console.log(movies);
-         */
-    var isLargeRow = true;
-
         return (
             <div className="movie_rec_entire">
                 {movies.slice(0,1).map((movie, index) => (
@@ -130,9 +95,9 @@ export default function (props) {
                         <div className="rec_grid">
                         <img
                             className="rec_poster"
-                            //key={movie.id}
+                            key={movie.id}
                             src={`${API_IMG}${movie.poster_path}`}
-                            //alt={movie.name}
+                            alt={movie.name}
                         ></img>
                         <body className="rec_synopsis">
                         <h1 className="rec_synopsis_header">Synopsis:</h1>

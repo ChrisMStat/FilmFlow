@@ -1,3 +1,5 @@
+/* Row for searched movies */
+
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
 import "./Row.css";
@@ -5,7 +7,6 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 const base_url = "https://image.tmdb.org/t/p/original/";
-var result;
 var movie_all;
 var movie_id = -1;
 var movie_description = "";
@@ -14,8 +15,6 @@ var movie_poster = "";
 const API_IMG = "https://image.tmdb.org/t/p/w200";
 
 function AddLikedMovie(id) {
-  result = id;
-
   var email = localStorage.getItem("email"); //retrieve the email from local storage
   var password = localStorage.getItem("password"); //retrieve the password from local storage
   var movID = id;
@@ -43,8 +42,6 @@ function AddLikedMovie(id) {
 }
 
 function AddDislikedMovie(id) {
-  result = id;
-
   var email = localStorage.getItem("email"); //retrieve the email from local storage
   var password = localStorage.getItem("password"); //retrieve the password from local storage
   var movID = id;
@@ -80,14 +77,12 @@ function SearchRow({ title, fetchUrl, isLargeRow }) {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
-      //console.log(request.data.results);
+      console.log(request.data.results);
       setMovies(request.data.results);
       return request;
     }
     fetchData();
   }, [fetchUrl]);
-
-  //console.log(movies);
 
   return (
     <div className="row">
@@ -126,7 +121,13 @@ function SearchRow({ title, fetchUrl, isLargeRow }) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img classNme="img-fluid" src={movie_poster}></img>
+          <img classNme="img-fluid"
+               key = {movie_id}
+               src={movie_poster}
+               alt = {movie_name}
+          >
+
+          </img>
           <p>
             <b> Synopsis: </b> {movie_description}
           </p>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavMenu from "./NavMenu";
@@ -11,17 +11,7 @@ import UserProfile from "./UserProfile";
 import Recommendation from "./Recommendation";
 
 function App() {
-  var e;
-  var p;
-  var m;
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
 
-  const onChange = (e) => {
-    e.preventDefault();
-    setQuery(e.target.value);
-    console.log(query);
-  };
   return (
     <div className="App">
       <div className="row d-flex align-items-center mt-4 mb-4">

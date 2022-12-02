@@ -1,3 +1,5 @@
+/* Used to hold the urls for the tmdb requests for each default genre */
+
 const API_KEY = "518f0cf1333524b8ec0f30f5fb0b224a";
 
 const requests ={
