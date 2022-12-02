@@ -20,7 +20,7 @@ Code is running on
 
 - http://localhost:3000/
 
-  Api is runnion on
+Api is runnion on
 
 - http://localhost:5555/
 
